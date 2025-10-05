@@ -1,7 +1,7 @@
 # AI Health Consultant
 
 <p align="center">
-  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fai-bot&psig=AOvVaw1QE5CP_0zGmeruInrqUHGk&ust=1759749840435000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJCVj5b5jJADFQAAAAAdAAAAABAE" alt="AI Health Consultant Logo" width="200"/>
+  <img src="./assets/icon.png" alt="AI Health Consultant Logo" width="200"/>
 </p>
 
 ## Overview
@@ -162,4 +162,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Google Gemini API](https://ai.google.dev/) for AI-powered analysis
 - [Google Maps Platform](https://developers.google.com/maps) for location services
 - [Expo](https://expo.dev/) for React Native development
-- [React Native Elements](https://reactnativeelements.com/) for UI component
+- [React Native Elements](https://reactnativeelements.com/) for UI components
