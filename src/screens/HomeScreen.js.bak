@@ -1,0 +1,115 @@
+import React from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import { Button, Icon } from '@rneui/themed';
+import * as ImagePicker from 'expo-image-picker';
+
+const FeatureButton = ({ title, icon, onPress }) => (
+  <Button
+    containerStyle={styles.featureButton}
+    titleStyle={styles.featureButtonText}
+    icon={<Icon name={icon} size={30} color="#fff" />}
+    title={title}
+    onPress={onPress}
+  />
+);
+
+const HomeScreen = ({ navigation }) => {
+  const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      console.log(result.assets[0]);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.content}>
+        <Button
+          title="Upload Image/Video"
+          icon={<Icon name="cloud-upload" size={24} color="#fff" />}
+          onPress={pickImage}
+          containerStyle={styles.uploadButton}
+        />
+
+        <View style={styles.featureGrid}>
+          <View style={styles.featureRow}>
+            <FeatureButton
+              title="AI Medicine Scanner"
+              icon="document-scanner"
+              onPress={() => navigation.navigate('MedicineScanner')}
+            />
+            <FeatureButton
+              title="Urgent Medical Assistance"
+              icon="emergency"
+              onPress={() => navigation.navigate('UrgentAssistance')}
+            />
+          </View>
+          <View style={styles.featureRow}>
+            <FeatureButton
+              title="Doctor Consultation"
+              icon="person"
+              onPress={() => navigation.navigate('DoctorConsultation')}
+            />
+            <FeatureButton
+              title="Drug Analysis"
+              icon="science"
+              onPress={() => navigation.navigate('DrugAnalysis')}
+            />
+          </View>
+          <View style={styles.featureRow}>
+            <FeatureButton
+              title="Disease Detection"
+              icon="healing"
+              onPress={() => navigation.navigate('DiseaseDetection')}
+            />
+            <FeatureButton
+              title="Paperless Prescription"
+              icon="description"
+              onPress={() => navigation.navigate('Prescription')}
+            />
+          </View>
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  content: {
+    flex: 1,
+    padding: 16,
+  },
+  uploadButton: {
+    marginVertical: 20,
+    borderRadius: 10,
+  },
+  featureGrid: {
+    flex: 1,
+  },
+  featureRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  featureButton: {
+    width: '48%',
+    aspectRatio: 1,
+    borderRadius: 10,
+  },
+  featureButtonText: {
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 8,
+  },
+});
+
+export default HomeScreen;
